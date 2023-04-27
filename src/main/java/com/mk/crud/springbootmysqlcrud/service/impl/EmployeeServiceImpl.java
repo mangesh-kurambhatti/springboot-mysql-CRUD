@@ -1,6 +1,7 @@
 package com.mk.crud.springbootmysqlcrud.service.impl;
 
 import com.mk.crud.springbootmysqlcrud.entity.Employee;
+import com.mk.crud.springbootmysqlcrud.exception.EmptyInputException;
 import com.mk.crud.springbootmysqlcrud.repository.EmployeeCrudRepo;
 import com.mk.crud.springbootmysqlcrud.service.IEmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
     @Override
     public Employee addEmployee(Employee employee) {
+        if(employee.getName().isEmpty() || employee.getName().length() <=0)
+            throw  new EmptyInputException("601","Employee is blank");
         return this.repo.save(employee);
 
     }
