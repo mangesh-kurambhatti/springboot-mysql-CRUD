@@ -9,7 +9,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 public class SpringbootMysqlCrudApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootMysqlCrudApplication.class, args);
 	}
