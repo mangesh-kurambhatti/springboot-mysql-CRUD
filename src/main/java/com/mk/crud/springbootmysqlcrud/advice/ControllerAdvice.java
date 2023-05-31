@@ -14,4 +14,9 @@ public class ControllerAdvice {
     public ResponseEntity<String> handleAddEmployee(EmptyInputException e){
         return new ResponseEntity<>("Employee name is empty | please enter name", HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<String> handleBuisnessException(BusinessException businessException){
+        return new ResponseEntity<>("Something went wrong in Controller",HttpStatus.BAD_REQUEST);
+    }
 }

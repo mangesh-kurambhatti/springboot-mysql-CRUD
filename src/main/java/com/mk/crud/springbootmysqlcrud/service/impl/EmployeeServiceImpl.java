@@ -20,7 +20,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
     @Override
     public Employee addEmployee(Employee employee) {
         if(employee.getName().isEmpty() || employee.getName().length() <=0)
-            throw  new EmptyInputException("601","Employee is blank");
+            throw new EmptyInputException("601","Employee is blank");
         return this.repo.save(employee);
 
     }
