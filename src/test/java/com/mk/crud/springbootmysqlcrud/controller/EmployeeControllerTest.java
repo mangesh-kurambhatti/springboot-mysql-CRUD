@@ -59,8 +59,24 @@ public class EmployeeControllerTest {
     }
 
 
+    @Test
+    public void testGetEmpById() throws Exception {
 
+        given(iEmployeeService.getEmpById(1l)).willReturn(Optional.ofNullable(this.employeeList.get(0)));
 
+        this.mockMvc.perform(get("/data/emp/{empid}",1))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name",is(employeeList.get(0).getName())));
+    }
+    @Test
+    public void testGetEmployeeByIdDemo() throws Exception {
+
+        given(iEmployeeService.getEmpById(1l)).willReturn(Optional.ofNullable(this.employeeList.get(0)));
+
+        this.mockMvc.perform(get("/data/emp/{empid}",1))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name",is(employeeList.get(0).getName())));
+    }
 
 
 
